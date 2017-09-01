@@ -1,0 +1,8 @@
+<ul>
+  <li routerLinkActive="active" *ngFor="let item of menuItems">
+    <a  [routerLink]="[item.path]">
+        <!-- <i class="{{item.icon}}">dashboard</i> -->
+        <p>{{item.title}}</p>
+    </a>
+</li>
+</ul>

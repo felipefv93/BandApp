@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
@@ -13,34 +15,31 @@ export const firebaseConfig = {
   storageBucket: "bandapp-21ea7.appspot.com",
   messagingSenderId: "146443321753"
 }
+//Rutas
+import { AppRoutes } from './app.routing';
 
-
+//Modulos
 import { AppComponent } from './app.component';
-import { PrincipalComponent } from './components/principal/principal.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { AboutComponent } from './components/about/about.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { DownloadComponent } from './components/download/download.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
+import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
+import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import { SidebarModule } from './sidebar/sidebar.module';
+import { FooterModule } from './shared/footer/footer.module';
+import { NavbarModule } from './shared/navbar/navbar.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrincipalComponent,
-    HeaderComponent,
-    FooterComponent,
-    AboutComponent,
-    BlogComponent,
-    ContactComponent,
-    DownloadComponent,
-    GalleryComponent
+    AdminLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(AppRoutes,{useHash:true}),    
     HttpModule,
+    SidebarModule,
+    FooterModule,
+    NavbarModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
