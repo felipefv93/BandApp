@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCjB0ZGiHLUZ27dMsdOSSjtdgWyzvwwzf0",
@@ -15,6 +16,9 @@ export const firebaseConfig = {
   storageBucket: "bandapp-21ea7.appspot.com",
   messagingSenderId: "146443321753"
 }
+//Services
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 //Rutas
 import { AppRoutes } from './app.routing';
 
@@ -41,9 +45,10 @@ import { NavbarModule } from './shared/navbar/navbar.module';
     FooterModule,
     NavbarModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
