@@ -15,11 +15,21 @@ export const AppRoutes: Routes = [
       component: AdminLayoutComponent,
       canActivate: [AuthGuard],
       children: [
-          {
-        path: '',
-        loadChildren: './dashboard/dashboard.module#DashboardModule',
-        canActivateChild:[AuthGuard]
-    }
+        {
+          path: '',
+          loadChildren: './dashboard/dashboard.module#DashboardModule',
+          canActivateChild:[AuthGuard]
+        },
+        {
+          path: 'catalogo',
+          loadChildren: './catalogo/catalogo.module#CatalogoModule',
+          canActivateChild:[AuthGuard]
+        },
+        {
+          path: 'perfil',
+          loadChildren: './perfil/perfil.module#PerfilModule',
+          canActivateChild:[AuthGuard]
+        }
   ]
     },
     {

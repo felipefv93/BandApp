@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <div class="card-content" *ngIf="cargo">
+                        <h4 class="card-title">Edit Profile -
+                            <small class="category">Complete your profile</small>
+                        </h4>
+                        <form (ngSubmit)="guardarDatos()" #perfilForm="ngForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Correo</label>
+                                        <input type="text" [(ngModel)]="datosUsuario.correo" name="correo" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Nombre Usuario</label>
+                                        <input type="text" [(ngModel)]="datosUsuario.nombreUsuario" name="nombreUsuario" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Nombre</label>
+                                        <input type="text" [(ngModel)]="datosUsuario.nombre" name="nombre" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Apellido Paterno</label>
+                                        <input type="text" [(ngModel)]="datosUsuario.apellidoPaterno" name="apellidoPaterno" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group label-floating">
+                                      <label class="control-label">Apellido Materno</label>
+                                      <input type="text" [(ngModel)]="datosUsuario.apellidoMaterno" name="apellidoMaterno" class="form-control">
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                  <div class="form-group label-floating">
+                                      <label class="control-label">Telefono</label>
+                                      <input type="text" [(ngModel)]="datosUsuario.telefono" name="telefono" class="form-control">
+                                  </div>
+                              </div>
+                          </div>
+                            <div class="row" *ngIf="false">
+                                <div class="col-md-12">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Domicilio</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="false">
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Ciudad</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Pais</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group label-floating">
+                                        <label class="control-label">Código Postal</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Acerca de mi</label>
+                                        <div class="form-group label-floating">
+                                            <label class="control-label"> Descripcion.</label>
+                                            <textarea class="form-control" [(ngModel)]="datosUsuario.descripcion" name="descripcion" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                      <label>Fecha Creación</label>
+                                      <div class="form-group label-floating">
+                                          <label class="control-label"> {{datosUsuario.fechaCreacion | date:'MMMd, y, HH:mm:ss'}}</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                            <button type="submit" class="btn btn-rose pull-right" [disabled]="!perfilForm.form.valid">Actualizar Perfil</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../../assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="#pablo" class="btn btn-rose btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

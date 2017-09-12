@@ -44,7 +44,8 @@ export class AuthService {
         // Simulate server latency with 2 second delay
         // this.datosUsuario=this.db.object('/users/'+this.usuario.uid);
         // resolve(this.datosUsuario);
-        resolve(this.db.object('/users/'+this.usuario.uid));
+        this.datosUsuario=this.db.object('/users/'+this.usuario.uid);
+        resolve(this.datosUsuario);
         // this.datosUsuario.subscribe(usuario=>{
         //     resolve(usuario);
         // })
